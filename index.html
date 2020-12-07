@@ -2,6 +2,17 @@
 
 <head>
 	<meta charset="utf-8">
+	<title>Search Form</title>
+	<style>
+		body {
+			background-color: coral;
+			padding: 1.2ex;
+		}
+
+		input {
+			text-decoration-color: blue;
+		}
+	</style>
 	<script>
 		// TODO: create a handler
 		window.addEventListener("load", function () {
@@ -18,8 +29,18 @@
 				document.querySelector("form").setAttribute("action", actions[chosenEngine]);
 				console.log(document.querySelector("form"));
 			}
+			function Emptyvalidation(inputtxt) {
+				if (inputtxt.value === "") {
+					document.inputtxt.style.background = 'Yellow';
+				}
+				else {
+					document.inputtxt.style.background = 'White';
+				}
+				return error;
+			}
 			searchForm.addEventListener("submit", setSearchEngine);
 		});
+
 	</script>
 </head>
 
