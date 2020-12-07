@@ -14,31 +14,26 @@
 		}
 	</style>
 	<script>
-		window.addEventListener("load", function () {
-			function setSearchEngine() {
-				let actions = {
-					Google: "https://www.google.com/search",
-					DuckDuckGo: "https://duckduckgo.com/",
-					Bing: "https://www.bing.com/search",
-					Ask: "https://www.ask.com/web"
-				};
-				console.log("setSearchEngine");
-				chosenEngine = document.querySelector("input[name=engine]:checked").value;
-				console.log("chosenEngine");
-				document.querySelector("form").setAttribute("action", actions[chosenEngine]);
-				console.log(document.querySelector("form"));
+		function setSearchEngine() {
+			let actions = {
+				Google: "https://www.google.com/search",
+				DuckDuckGo: "https://duckduckgo.com/",
+				Bing: "https://www.bing.com/search",
+				Ask: "https://www.ask.com/web"
+			};
+			let form = document.getElementById("searchForm");
+			let text = document.querySelector("[name=q]").value;
+			let chosenEngine = document.querySelector("input[name=engine]:checked").value;
+			if (text === "") {
+				event.preventDefault();
+				alert('must have text');
 			}
-
-			let button = document.getElementById("submitButton");
-			button.addEventListener('click', function (event) {
-				if (text.value === "") {
-					window.alert('must have text')
-					event.preventDefault()
-				}
-			});
-			searchForm.addEventListener("submit", setSearchEngine);
+			form.setAttribute("action", actions[chosenEngine]);
+		}
+		window.addEventListener("load", function () {
+			let form = document.getElementById("searchForm");
+			form.addEventListener("submit", setSearchEngine);
 		});
-
 	</script>
 </head>
 
