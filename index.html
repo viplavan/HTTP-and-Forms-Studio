@@ -1,4 +1,4 @@
-<!doctype html>
+<html>
 
 <head>
 	<meta charset="utf-8">
@@ -14,7 +14,6 @@
 		}
 	</style>
 	<script>
-		// TODO: create a handler
 		window.addEventListener("load", function () {
 			function setSearchEngine() {
 				let actions = {
@@ -29,15 +28,14 @@
 				document.querySelector("form").setAttribute("action", actions[chosenEngine]);
 				console.log(document.querySelector("form"));
 			}
-			function Emptyvalidation(inputtxt) {
-				if (inputtxt.value === "") {
-					document.inputtxt.style.background = 'Yellow';
+
+			let button = document.getElementById("submitButton");
+			button.addEventListener('click', function (event) {
+				if (text.value === "") {
+					window.alert('must have text')
+					event.preventDefault()
 				}
-				else {
-					document.inputtxt.style.background = 'White';
-				}
-				return error;
-			}
+			});
 			searchForm.addEventListener("submit", setSearchEngine);
 		});
 
@@ -64,3 +62,5 @@
 	</form>
 
 </body>
+
+</html>
